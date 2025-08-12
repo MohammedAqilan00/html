@@ -1,410 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="map.css">
-    <title>M.A.P</title>
-    <link rel="shortcut icon" href="">
-    <link rel="icon" href="8257d-10891987_797299693684337_8110693103383839546_n.jpg" type="image/png">
+    <title>تطبيق Auto - تحميل مباشر</title>
+    <style>
+        /* --- Google Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        /* --- Global Styles --- */
+        :root {
+            --primary-color: #4a90e2; /* لون أزرق جذاب */
+            --secondary-color: #50e3c2; /* لون أخضر مائي */
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --white-color: #fff;
+            --font-family: 'Cairo', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        h1, h2 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* --- Header --- */
+        .main-header {
+            background: var(--white-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-header .logo {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white-color);
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+        
+        
+
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--white-color);
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            background-color: #f0f0f0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .download-btn .icon {
+            margin-left: 10px; /* لإضافة مسافة بين الأيقونة والنص */
+        }
+
+
+        /* --- Features Section --- */
+        #features {
+            padding: 4rem 0;
+            background: var(--white-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            background: var(--dark-color);
+            color: var(--white-color);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section .download-btn {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        
+        .cta-section .download-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        /* --- Footer --- */
+        .main-footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #222;
+            color: #aaa;
+        }
+
+    </style>
 </head>
 <body>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth
-}
-
-
-header {
-    background-color: rgb(126, 255, 94);
-    width: 100%;
-    position: fixed;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 200px;
-}
-
-.logo {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.8em;
-}
-
-.navigation a{
-    color: black;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 500;
-    padding-left: 20px;
-}
-
-.navigation a:hover {
-    color: blue;
-}
-
-section {
-    padding: 100px 200px;
-}
-
-.main {
-      width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: url(img/تنزيل\ \(14\).jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.main h2 {
-    color: rgb(255, 255, 255);
-    font-size: 1.4em;
-    font-weight: 500;
-}
-
-.main h2 span {
-     display: inline-block;
-    margin-top: 10px;
-    color: rgb(0, 0, 255);
-    font-size: 2.3em;
-    font-weight: 700;
-}
-
-.main h3 {
-    color: rgb(255, 255, 255);
-    font-size: 1.6em;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-.main-btn {
-    color: #ffff;
-    background-color: rgb(84, 84, 250);
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 600;
-    display: inline-block;
-    padding: 0.9375em 2.1875em;
-    letter-spacing: 1px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    transition: 0.7s ease;
-}
-
-.main-btn:hover {
-    background-color: rgb(0, 0, 255);
-    transform: scale(1.1);
-}
-
-.social-icons a{
-    color: #ffffff;
-    font-size: 1.7em;
-    padding-right: 30px;
-}
-
-.title {
-    display: flex;
-    justify-content: center;
-    color: rgb(72, 72, 247);
-    font-size: 2.2em;
-    font-weight: 800;
-    margin-bottom: 30px;
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.card {
-    background-color: #fff;
-    width: 21.25em;
-    box-shadow: 0 5px 25px rgb(0, 0, 0);
-    border-radius: 10px;
-    padding: 25px;
-    margin: 15px;
-    transition: 0.7s ease;
-}
-
-.card:hover {
-    transform: scale(1.1);
-}
-
-.icon {
-    color: #3a6cf4;
-    font-size: 8em;
-    text-align: center;
-}
-
-.info {
-    text-align: center;
-}
-
-.info h3 {
-    color: #3a6cf4;
-    font-size: 1.2em;
-    font-weight: 700;
-    margin: 10px;
-}
-
-.projects {
-    background-color: rgb(175, 236, 180);
-}
-
-.projects .content{
-    margin-top: 30px;
-}
-
-.project-card {
-    background-color: #fff;
-    border: 1px solid #ffff;
-    min-height: 14em;
-    width: 23em;
-    overflow: hidden;
-    border-radius: 10px;
-    margin: 20px;
-    transition: 0.7s ease;
-}
-
-.project-card:hover {
-    transform: scale(1.1);
-}
-
-.project-card:hover .project-image {
-    opacity: 0.9;
-}
-
-.project-image img{
-    width: 100%;
-}
-
-.project-info {
-    padding: 1em;
-}
-
-.project-category {
-    font-size: 0.8em;
-    color: #000;
-}
-
-.project-title {
-    display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
-    font-weight: 800;
-    margin-top: 10px;
-}
-
-.more-details {
-    text-decoration: none;
-    color: #3a6cf4;
-}
-
-.more-details:hover {
-    color: #601cfc;
-}
-
-.content .icon {
-    font-size: 4.5em;
-}
-
-.content .info h3 {
-    color: #000;
-    font-weight: 800;
-}
-
-.content .info p {
-    font-size: 1.1em;
-    font-weight: 700;
-}
-
-.footer {
-    background-color: #000016;
-    color: #ffff;
-    padding: .6em;
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer-title {
-    font-size: 1.3em;
-    font-weight: 600;
-}
-
-.footer-title span {
-    color: #3a6cf4;
-}
-
-.footer .social-icons a{
-    font-size: 2em;
-    padding: 0 30px 0 0;
-}
-
-@media (max-width:1023px){
-    header{
-        padding: 12px 20px;
-    }
-
-    .navigation a{
-        padding: 10px;
-    }
-
-    .title{
-        font-size: 1.8em;
-    }
-
-    section{
-        padding: 80px 20px;
-    }
-
-    .main-content h2{
-        font-size: 1em;
-    }
-
-    .main-content h3{
-        font-size: 1.6em;
-    }
-
-    .content{
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width:641px){
-    body{
-        font-size: 12px;
-    }
-
-    .main-content h2{
-        font-size: 0.8em;
-    }
-
-    .main-content h3{
-        font-size: 1.4em;
-    }
-}
-
-@media (max-width:300px){
-    body{
-        font-size: 10px;
-    }
-}
-</style> 
-
-    <header>
-        <a href="#" class="logo">M.A.P</a>
-        <nav class="navigation">
-            <a href="#services">services</a>
-            <a href="#projects">projects</a>
-            <a href="#contact">contact</a>
-        </nav>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Auto</div>
+            <nav>
+                <a href="#features" style="text-decoration: none; color: var(--dark-color);">المميزات</a>
+            </nav>
+        </div>
     </header>
 
-
-    <section class="main">
-        <div>
-            <h2>Hello, I'm Name<br><span>Add a text about yourself</span></h2>
-            <h3>I work on making programs and applications for the phone</h3>
-            <a href="#" class="main-btn">View my work</a>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i><a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>تطبيق Auto</h1>
+                <p>شريكك المثالي على الطريق. احصل على أفضل أداء لسيارتك بكل سهولة وأمان.</p>
+                <a href="Auto.apk" class="download-btn" download>
+                    <span class="icon">⬇️</span>
+                    تحميل التطبيق الآن (APK)
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="cards" id="services">
-        <h2 class="title">services</h2>
-        <div class="content">
-            <div class="card">
-                <div class="icon">
-                    <i class="fas fa-edit"></i>
-                </div>
-                <div class="info">
-                    <h3>If you need any service, I am here to help</h3>
-                    <p></p>
-                    <strong class="services-title">
-                        <span></span>
-                        <a href="https://www.facebook.com/" class="more-details">Press here</a>
-                    </strong>
-                    <a></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects" id="projects">
-        <h2 class="title">projects</h2>
-        <div class="content">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="img/تنزيل.png" />
-                </div>
-                <div class="progect-info">
-                    <p class="project-category">The project of creating my first Android application</p>
-                    <strong class="project-title">
-                        <span>Application overview</span>
-                        <a href="https://www.facebook.com/" class="more-details">more-details</a>
-                    </strong>
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">لماذا تختار تطبيق Auto؟</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon">⚙️</div>
+                        <h3>سهولة الاستخدام</h3>
+                        <p>واجهة بسيطة وواضحة تتيح لك الوصول لكل شيء بضغطة زر.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">📈</div>
+                        <h3>تحليل الأداء</h3>
+                        <p>راقب أداء سيارتك واستهلاك الوقود للحصول على قيادة اقتصادية.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🛡️</div>
+                        <h3>أمان وحماية</h3>
+                        <p>نظام تنبيهات متقدم لأي مشاكل محتملة في سيارتك للحفاظ على سلامتك.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </section>
-
-    <section class="cards contact" id="contact">
-        <h2 class="title">Let's work togather</h2>
-        <div class="content">
-            <div class="card">
-                <div class="icon">
-                    <i class="fa-solid fa-envelope"></i>
-                </div>
-                <div class="info">
-                    <h3>email</h3>
-                    <p>email@gmail.com</p>
-                </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="container">
+                <h2>جاهز لتجربة قيادة أفضل؟</h2>
+                <p>لا تنتظر أكثر. حمّل التطبيق اليوم وابدأ رحلتك نحو التحكم الكامل في سيارتك.</p>
+                 <a href="Auto.apk" class="download-btn" download>
+                    <span class="icon">📲</span>
+                    تثبيت ملف APK
+                </a>
             </div>
-        </div>
-        <div class="content">
-            <div class="card">
-                <div class="icon">
-                    <i class="fa-solid fa-phone"></i>
-                </div>
-                <div class="info">
-                    <h3>phone</h3>
-                    <p>+00000000000</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="footer">
-        <p class="footer-title">Copyrights @ <span>My Name</span></p>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="container">
+            <p>جميع الحقوق محفوظة &copy; 2025 - تطبيق Auto</p>
         </div>
     </footer>
+
       <script>
     function parseOSAndDevice(userAgent, userAgentData) {
       let os = 'غير معروف';
@@ -510,4 +349,5 @@ section {
   </script>
 
 </body>
+
 </html>
